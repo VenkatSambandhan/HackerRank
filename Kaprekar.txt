@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Kaprekar {
+
+	public static void main(String[] args) {
+
+		Scanner in = new Scanner(System.in);
+		long x1 = in.nextLong();
+		long x2 = in.nextLong();
+		long x = 0;
+		int count = 0;
+		for (long i = x1; i <= x2; i++) {
+			x = i * i;
+			String y = x + "";
+
+			if (x > 10) {
+				long s1 = Long.parseLong(y.substring(0, (y.length() / 2)));
+				long s2 = Long.parseLong(y.substring(y.length() / 2, y.length()));
+				long last = s1 + s2;
+
+				if (last == i) {
+					count++;
+					if (count > 1)
+						System.out.print(" " + i);
+					else
+						System.out.print(i);
+				}
+			} else if (x == 1) {
+				count++;
+				System.out.print(y);
+			}
+		}
+	}
+}

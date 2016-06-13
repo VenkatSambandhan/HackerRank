@@ -1,0 +1,26 @@
+
+public class Fox {
+
+	public static void main(String[] args) {
+		String input = "the quick brown fox jumped over the lazy dog";
+		int x = 12;
+		char[] input1 = input.toCharArray();
+		int count = 0;
+		int size = 0;
+
+		String[] words = input.split(" ");
+
+		for (int i = 0; i < words.length; i++) {
+			count = count + words[i].length();
+			if (count < x) {
+				System.out.print(words[i] + " ");
+			} else {
+				count = 0;
+				System.out.println();
+				System.out.print(words[i] + " ");
+				count = count + words[i].length();
+			}
+		}
+	}
+
+}

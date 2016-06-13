@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+/**
+ * Created by Venkat on 5/27/2016.
+ */
+public class ArrList {
+    public static void main(String[] args) {
+        ArrayList<Integer> al = new ArrayList<Integer>();
+        al.add(1);
+        al.add(1);
+        al.add(2);
+        al.add(3);
+        for(Iterator<Integer> it = al.iterator(); it.hasNext();)
+        {
+            int x = it.next();
+            if(x==1])
+            it.remove();
+        }
+        System.out.println(al);
+    }
+}

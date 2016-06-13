@@ -1,0 +1,64 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class GridSearch {
+	static int r, c, m, n;
+	static String arr[];
+	static String pattern[];
+
+	static void input(Scanner sc) {
+		r = sc.nextInt();
+		c = sc.nextInt();
+		arr = new String[r];
+		String s = sc.nextLine();
+		for (int i = 0; i < r; i++) {
+			arr[i] = sc.nextLine();
+		}
+		m = sc.nextInt();
+		n = sc.nextInt();
+		pattern = new String[m];
+		s = sc.nextLine();
+		for (int i = 0; i < m; i++) {
+			pattern[i] = sc.nextLine();
+		}
+		int value = (int) pattern[0].charAt(0);
+		boolean found = false;
+		outer: for (int i = 0; i <= r - m; i++) {
+			for (int j = 0; j <= c - n; j++) {
+				if ((int) (arr[i].charAt(j)) == value) {
+					found = check(i, j);
+					if (found == true) {
+						System.out.println("YES");
+						break outer;
+					}
+				}
+			}
+		}
+		if (found == false)
+			System.out.println("NO");
+	}
+
+	static boolean check(int m, int k) {
+		for (int i = 0, t = m; i < pattern.length; i++, t++) {
+			for (int j = 0, l = k; j < pattern[i].length(); j++, l++) {
+				if (arr[t].charAt(l) == pattern[i].charAt(j))
+					continue;
+				else
+					return false;
+			}
+		}
+		return true;
+	}
+
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		int test = sc.nextInt();
+		for (int i = 0; i < test; i++) {
+			GridSearch g1 = new GridSearch();
+			g1.input(sc);
+		}
+	}
+}

@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+//https://www.hackerrank.com/contests/hourrank-4/challenges/new-year-chaos
+public class NewYearChaos {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int testCases = input.nextInt();
+		while (testCases > 0) {
+			testCases--;
+			int n = input.nextInt();
+			int[] inputLine = new int[n];
+			for (int a = 0; a < n; a++) {
+				inputLine[a] = input.nextInt();
+			}
+			int count = 0;
+			int[] checker = new int[n + 1];
+			boolean chaos = false;
+			boolean finished = false;
+
+			while (!finished) {
+				finished = true;
+				for (int i = 0; i < n - 1; i++) {
+					if (inputLine[i] > inputLine[i + 1]) {
+						checker[inputLine[i]]++;
+						count++;
+
+						if (checker[inputLine[i]] > 2) {
+							chaos = true;
+							finished = true;
+							break;
+						}
+
+						int temp = inputLine[i];
+						inputLine[i] = inputLine[i + 1];
+						inputLine[i + 1] = temp;
+						finished = false;
+					}
+				}
+			}
+			if (chaos)
+				System.out.println("Too chaotic");
+			else
+				System.out.println(count);
+		}
+	}
+}
