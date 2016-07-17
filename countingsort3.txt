@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class countingsort3 {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int x = in.nextInt();
+		int[] ar = new int[x];
+		int[] output = new int[x];
+		for (int i = 0; i < x; i++) {
+			ar[i] = in.nextInt();
+		}
+		int count = 0;
+		for (int k = 0; k < 99; k++) {
+			for (int j = 0; j < ar.length; j++) {
+				if (ar[j] == k)
+					count++;
+			}
+			System.out.println(count + " ");
+		}
+	}
+}

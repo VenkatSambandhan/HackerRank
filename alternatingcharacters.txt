@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class alternatingcharacters {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner in = new Scanner(System.in);
+		int x = in.nextInt();
+		
+		for (int i = 0; i < x; i++) {
+			int delete = 0;
+			String y = in.next();
+			char[] z = y.toCharArray();
+			int size = z.length;
+
+			for (int j = 0; j < size - 1; j++) {
+				if (z[j] == z[j + 1])
+					delete++;
+			}
+			System.out.println(delete);
+		}
+	}
+}

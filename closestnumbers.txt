@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.util.Arrays;
+
+public class closestnumbers {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int x = in.nextInt();
+		long[] ar = new long[x];
+		LinkedList<Long> output = new LinkedList<Long>();
+		int count = 0;
+		for (int i = 0; i < x; i++) {
+			ar[i] = in.nextInt();
+		}
+		long difference = 100000;
+		for (int j = 0; j < ar.length - 1; j++) {
+			for (int k = j + 1; k < ar.length; k++) {
+				// System.out.println("Value of k: " +k);
+				long calc = Math.abs(ar[j] - ar[k]);
+				// System.out.println(calc);
+				if (calc < difference) {
+					difference = calc;
+					// System.out.println("Difference: " + difference);
+					output.clear();
+					output.add(ar[j]);
+					output.add(ar[k]);
+				} else if (calc == difference) {
+					difference = calc;
+					output.add(ar[j]);
+					output.add(ar[k]);
+				}
+			}
+		}
+		long[] output1 = new long[output.size()];
+		for (int l = 0; l < output.size(); l++) {
+			// System.out.print(output.get(l) + " ");
+			// System.out.println(l);
+			output1[l] = output.get(l);
+		}
+		Arrays.sort(output1);
+		for (int m = 0; m < output1.length; m++)
+			System.out.print(output1[m] + " ");
+
+	}
+}

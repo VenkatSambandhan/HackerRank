@@ -1,0 +1,36 @@
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class twostrings {
+
+	public static void main(String[] args) {
+
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+
+		for (int i = 0; i < n; i++) {
+			String x = in.next();
+			String y = in.next();
+
+			char[] z = x.toCharArray();
+			char[] zz = y.toCharArray();
+			HashSet<Character> h1 = new HashSet<Character>();
+			HashSet<Character> h2 = new HashSet<Character>();
+
+			for (int j = 0; j < x.length(); j++) {
+				
+				h1.add(z[j]);
+			}
+
+			for (int k = 0; k < y.length(); k++) {
+				
+				h2.add(zz[k]);
+			}
+			h2.retainAll(h1);
+			if (h2.size() > 0)
+				System.out.println("YES");
+			else if (h2.size() == 0)
+				System.out.println("NO");
+		}
+	}
+}

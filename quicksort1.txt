@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class quicksort1 {
+
+	static void partition(int[] ar) {
+		int pivot = ar[0];
+		LinkedList<Integer> left = new LinkedList<Integer>();
+		LinkedList<Integer> right = new LinkedList<Integer>();
+		for (int i = 0; i < ar.length; i++) {
+			if (ar[i] < pivot) {
+				left.add(ar[i]);
+			} else if (ar[i] > pivot) {
+				right.add(ar[i]);
+			}
+		}
+		// System.out.println(left);
+
+		for (int i = 0; i < left.size(); i++) {
+			System.out.print(left.get(i) + " ");
+		}
+		System.out.print(pivot + " ");
+		
+		for (int i = 0; i < right.size(); i++) {
+			System.out.print(right.get(i) + " ");
+		}
+
+	}
+
+	/*
+	 * static void printArray(int[] ar) { for (int n : ar) { System.out.print(n
+	 * + " "); } System.out.println(""); }
+	 */
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		int[] ar = new int[n];
+		for (int i = 0; i < n; i++) {
+			ar[i] = in.nextInt();
+		}
+		partition(ar);
+	}
+}

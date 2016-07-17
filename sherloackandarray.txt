@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class sherlockandarray {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int x = in.nextInt();
+		boolean t = true;
+		for (int i = 0; i < x; i++) {
+			int y = in.nextInt();
+			int[] input = new int[y];
+			for (int j = 0; j < y; j++) {
+				input[j] = in.nextInt();
+			}
+			int left = 0;
+			int right = 0;
+			for (int k = 0; k < input.length; k++) {
+				for (int l = 0; l < k; l++) {
+					left += input[l];
+				}
+				for (int m = k + 1; m < input.length; m++) {
+					right += input[m];
+				}
+				if (left == right) {
+					System.out.println("YES");
+					t = true;
+					break;
+				}
+				t = false;
+				left = 0;
+				right = 0;
+			}
+			if (!t)
+				System.out.println("NO");
+		}
+	}
+}

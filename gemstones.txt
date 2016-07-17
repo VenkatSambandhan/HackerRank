@@ -1,0 +1,40 @@
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class gemstone {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+
+		int x = in.nextInt();
+		int[] counter = new int[26];
+		HashSet<Character> in1 = new HashSet<Character>();
+		HashSet<Character> in2 = new HashSet<Character>();
+
+		for (char c = 'a'; c <= 'z'; c++) {
+			in2.add(c);
+		}
+
+		for (int i = 0; i < x; i++) {
+			String input = in.next().toLowerCase();
+			char[] input1 = input.toCharArray();
+			in1.clear();
+			/* System.out.println("aaaaa"); */
+			for (int j = 0; j < input1.length; j++) {
+
+				if (input1[j] >= 97 && input1[j] <= 122) {
+					
+					in1.add(input1[j]);
+					
+				}
+			}
+
+			in2.retainAll(in1); // retains only the intersection..
+
+		}
+	
+		System.out.println(in2.size());
+
+	}
+
+}

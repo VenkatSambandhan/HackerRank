@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class lovelettermystery {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+
+		int x = in.nextInt();
+		for (int i = 0; i < x; i++) {
+			/*
+			 * System.out.println(i);
+			 */ String input = in.next();
+			char[] input1 = input.toCharArray();
+			int count = 0;
+			int size = input1.length - 1;
+			/*if(size%2 !=0)
+			{
+				size = size + 1;
+			}*/
+			/*System.out.println(size);*/
+			for (int j = 0; j < input1.length / 2; j++, size--) {
+				count += Math.abs((int) (input1[j] - input1[size]));
+				/* System.out.println(count); */
+			}
+			System.out.println(count);
+		}
+	}
+}

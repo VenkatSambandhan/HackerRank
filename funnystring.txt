@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class funnystring {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int t = in.nextInt();
+
+		for (int i = 0; i < t; i++) {
+			String input = in.next().toLowerCase();
+			int count = 0;
+			char[] input1 = input.toCharArray();
+			int size = input1.length - 1;
+
+			for (int j = 0; j < input1.length - 1; j++, size--) {
+				/*
+				 * if(input1.length%2!=0) { System.out.println("Not Funny");
+				 * break; }
+				 */
+				if ((Math.abs(input1[j] - input1[j + 1])) == (Math.abs(input1[size] - input1[size - 1]))) {
+
+					/*
+					 * System.out.println(input1[j]);
+					 * System.out.println(Math.abs(input1[j] - input1[j + 1]));
+					 * System.out.println(input1[size]);
+					 * System.out.println(Math.abs(input1[size] - input1[size -
+					 * 1]));
+					 */
+
+					count++;
+					/* System.out.println(count); */
+					continue;
+				}
+
+				else
+					System.out.println("Not Funny");
+				break;
+			}
+
+			if (count == input1.length - 1)
+				System.out.println("Funny");
+		}
+	}
+}
